@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no,viewport-fit=cover">
+<meta name="theme-color" content="#070914">
+<title>NOVAWORM — Arène de serpents</title>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 64 64%27%3E%3Crect width=%2764%27 height=%2764%27 rx=%2714%27 fill=%27%230a0f26%27/%3E%3Cpath d=%27M12 44c10 0 8-24 20-24s10 24 20 24%27 fill=%27none%27 stroke=%27%2339ff88%27 stroke-width=%278%27 stroke-linecap=%27round%27/%3E%3Ccircle cx=%2752%27 cy=%2744%27 r=%275%27 fill=%27%23fff%27/%3E%3C/svg%3E">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<canvas id="game"></canvas>
+
+<div id="app">
+  <section id="screen-menu" class="screen">
+    <header class="topbar">
+      <div class="brand">NOVA<b>WORM</b></div>
+      <div class="chips">
+        <button class="chip gift" id="daily-btn" data-act="daily" hidden>🎁 Bonus</button>
+        <button class="chip" data-go="shop">◆ <span id="coins">0</span></button>
+        <button class="chip" id="chip-rank" data-go="ranked"></button>
+      </div>
+    </header>
+    <main class="menu-main">
+      <div class="menu-left">
+        <label class="namebox"><span>Pseudo</span><input id="in-name" maxlength="16" autocomplete="off" spellcheck="false"></label>
+        <div class="modeswitch" id="modeswitch"><button data-mode="off">Hors ligne</button><button data-mode="on">En ligne</button></div>
+        <button class="btn primary xl" data-act="play">JOUER</button>
+        <small class="muted" id="net-note"></small>
+        <button class="btn ranked xl" data-go="ranked">RANKED</button>
+        <div class="grid2">
+          <button class="btn" data-go="shop">BOUTIQUE</button>
+          <button class="btn" data-go="locker">CASIER</button>
+          <button class="btn" data-go="leaderboard">CLASSEMENT</button>
+          <button class="btn" data-go="settings">PARAMÈTRES</button>
+        </div>
+      </div>
+      <div class="menu-right card">
+        <canvas id="menu-preview"></canvas>
+        <div class="pv-meta"><div id="pv-name"></div><button class="btn sm" data-go="locker">Personnaliser</button></div>
+      </div>
+    </main>
+  </section>
+  <section id="screen-shop" class="screen"></section>
+  <section id="screen-locker" class="screen"></section>
+  <section id="screen-ranked" class="screen"></section>
+  <section id="screen-leaderboard" class="screen"></section>
+  <section id="screen-settings" class="screen"></section>
+</div>
+
+<div id="hud" hidden>
+  <div class="hud-tl">
+    <div class="score-box"><small>SCORE</small><b id="h-score">0</b></div>
+    <div class="small-stats"><span>Rang <b id="h-rank">–</b></span><span>Éliminations <b id="h-kills">0</b></span></div>
+  </div>
+  <div id="h-ranked" class="hud-top" hidden><span id="h-timer">3:00</span><span id="h-alive"></span></div>
+  <div class="hud-tr card"><h4>CLASSEMENT</h4><ol id="h-lb"></ol></div>
+  <div class="hud-bl"><canvas id="minimap" width="132" height="132"></canvas></div>
+  <div id="h-storm" hidden></div>
+  <div id="h-feed"></div>
+  <div id="h-fps" hidden></div>
+  <button id="h-pause" class="icon-btn" aria-label="Pause">❚❚</button>
+  <button id="h-boost" class="boost-btn">BOOST</button>
+  <div id="h-count" hidden></div>
+</div>
+<div id="overlay" hidden></div>
+<div id="toasts"></div>
+
+<script src="data.js"></script>
+<script src="core.js"></script>
+<script src="storage.js"></script>
+<script src="audio.js"></script>
+<script src="render.js"></script>
+<script src="net.js"></script>
+<script src="game.js"></script>
+<script src="ui.js"></script>
+<script src="main.js"></script>
+</body>
+</html>

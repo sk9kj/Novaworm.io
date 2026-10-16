@@ -1,0 +1,10 @@
+{
+  "name": "novaworm",
+  "version": "1.0.0",
+  "description": "NOVAWORM — jeu de serpents .io (client navigateur + serveur multijoueur optionnel)",
+  "main": "server.js",
+  "scripts": { "start": "node server.js" },
+  "engines": { "node": ">=18" },
+  "dependencies": {},
+  "license": "MIT"
+}
